@@ -10,7 +10,7 @@ ParadoxDevX is a personal product studio where I design and build modern web app
 
 ## 🚀 Live Website
 
-Coming Soon
+https://paradoxdevx.online
 
 ---
 
