@@ -1,60 +1,78 @@
-import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 
-export default function Hero(){
+export default function Hero() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  }
 
-return(
+  const item = {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+  }
 
-<section id="home" className="relative py-52 overflow-hidden">
+  return (
+    <section id="home" className="relative min-h-screen pt-24 pb-16 overflow-hidden bg-dark-grid border-b border-gray-900">
 
-{/* animated glow background */}
+      <div className="max-w-[1400px] mx-auto px-6 h-full flex flex-col justify-center text-center md:text-left mt-8 md:mt-0">
 
-<motion.div
-className="absolute w-[700px] h-[700px] bg-orange-500/15 rounded-full blur-3xl"
-animate={{x:[-100,100,-100],y:[-50,50,-50]}}
-transition={{duration:20,repeat:Infinity}}
-/>
+        {/* Top tracking text */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="flex justify-between items-center text-[10px] md:text-xs font-mono-tag tracking-widest text-[#666] mb-12 uppercase select-none"
+        >
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 bg-[#666] inline-block"></span>
+            PRODUCT STUDIO
+          </div>
+          <div>EST. 2026</div>
+        </motion.div>
 
-<motion.div
-className="absolute right-0 w-[600px] h-[600px] bg-purple-500/15 rounded-full blur-3xl"
-animate={{x:[100,-100,100],y:[50,-50,50]}}
-transition={{duration:18,repeat:Infinity}}
-/>
+        {/* Massive Typography */}
+        <motion.h1 
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="text-[11vw] leading-[0.85] font-black tracking-tighter uppercase ml-[-0.05em] "
+        >
+          <motion.div variants={item} className="text-white ">PRODUCT</motion.div>
+          <motion.div variants={item} className="text-white">LAB &</motion.div>
+          <motion.div variants={item} className="text-[#333]">FREELANCE.</motion.div>
+        </motion.h1>
 
-<div className="max-w-4xl mx-auto text-center relative z-10 px-6">
- <span className="text-xs border border-gray-700 px-3 py-1 rounded-full text-gray-400 mb-6 inline-block">
-PRODUCT STUDIO
-</span>
+        {/* Bottom Description & Actions */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-24 md:mt-32 flex flex-col md:flex-row justify-between items-start md:items-end gap-10 border-t border-[#222] pt-10"
+        >
 
-<h1 className="text-6xl font-bold leading-tight mt-12">
-Build Fast.
-<br/>
-Ship Products.
-</h1>
+          <p className="text-[#888] max-w-md text-sm md:text-base leading-relaxed">
+            ParadoxDevX is an independent product lab and freelance studio. We build modern developer tools, scalable platforms, and turn client ideas into reality.
+          </p>
 
-<p className="text-gray-400 mt-6 text-lg">
-ParadoxDevX is an independent product studio building
-modern developer tools and platforms.
-</p>
+          <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+            <a href="#projects" className="bg-white text-black text-sm font-bold px-8 py-3 w-full sm:w-auto text-center hover:bg-gray-200 transition-colors">
+              View Products
+            </a>
+            <a href="https://x.com/ParadoxDevX" target="_blank" className="bg-black text-white border border-[#333] text-sm font-bold px-8 py-3 w-full sm:w-auto text-center hover:bg-[#111] transition-colors">
+              Follow the Build
+            </a>
+          </div>
 
-<div className="flex justify-center gap-4 mt-10">
+        </motion.div>
 
-<a
-href="#projects"
-className="bg-white text-black px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:gap-3 transition-all duration-300"
->
+      </div>
 
-View Products
-<ArrowRight size={18}/>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-)
-
+    </section>
+  )
 }

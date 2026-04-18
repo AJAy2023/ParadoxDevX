@@ -1,12 +1,36 @@
 @import "tailwindcss";
 
-
-html{
-scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-background:black;
-color:white;
-font-family:system-ui;
+body {
+  background: black;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Typography Utilities */
+.font-mono-tag {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Background Patterns */
+.bg-dark-grid {
+  background-color: #050505;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.bg-light-dots {
+  background-color: #fbfbfb;
+  background-image: radial-gradient(#d0d0d0 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Remove default link outlines mostly, add custom focus rings if needed later */
+a, button {
+  outline: none;
 }
